@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.component';
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
 import { CountryPageComponent } from './pages/country-page/country-page.component';
+import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.component';
 
 const routes: Routes = [
     {
@@ -12,7 +13,7 @@ const routes: Routes = [
     },
     {
         path: 'by-country',
-        component: ByRegionPageComponent
+        component: ByCountryPageComponent
     },
     {
         path: 'by-region',
@@ -24,7 +25,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        component: ByCapitalPageComponent
+        redirectTo: 'by-capital'
     }
 ]
 
@@ -32,7 +33,9 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes)
     ],
-    exports: [],
+    exports: [
+        RouterModule
+    ],
     
 })
 export class CountriesRoutingModule { }
